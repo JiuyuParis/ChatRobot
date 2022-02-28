@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="hutool-all-5.3.8">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/WebContent/WEB-INF/lib/hutool-all-5.3.8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="utf-8">
+		<title>practice3</title>
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//这是为了防止文档在完全加载（就绪）之前运行 jQuery 代码，即在 DOM 加载完成后才可以对 DOM 进行操作。
+			$(document).ready(function(){
+				$("#btn1").click(function(){
+					alert("调用成功")
+				})
+			})
+		</script>
+		<div id="div1">
+			<p id="p1">这是第一段</p>
+			<form id="form1">
+				<label for="text1"></label><input id="text1" type="text" name="information" />
+				<input id="btn1" type="button" value="确认" class="btn-toolbar" /><br />
+				<img id="img1" src="img/初雪.jpg" width="150" height="100" alt=""/>
+			</form>
+			<p id="p2"></p>
+			<div id="div2"></div>
+		</div>
+		<script type="text/javascript">
+			function alerting()
+			{
+				alert("加载完成");
+			}
+		</script>
+		<script type="text/javascript">
+			$("#btn1").click(function()
+			{
+				$("#img1").attr("src","img/丛林.jpg")
+				$("#p1").text("骗你的");
+				$("#div1").html("<h1>404 Not found</h1>");
+				$("#div1").append("<h1>404 Not found</h1>");
+				var a=document.getElementById("div1");
+				a.append("<h1>404 Not found</h1>");
+				$("#p2").load("expHttpTuling.jsp",{"information":$("#text1").val()});
+				//jQuery ajax请求
+				$.ajax(
+						{
+							"type":"post","url":"./expHttpTuling.jsp","data":{"information":$("#text1").val()},"success":function(data){$("#div2").append("<div>"+data+"</div>")},"dataType":"text"
+						})
+			})
+			console.log($("#text1").val());
+		</script>
+	</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- 设置网页编码格式 -->
+		<meta charset="utf-8" />
+		<!-- 文档兼容模式声明 content表示使用IE最新的渲染模式 -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<!-- 视口设置:用于移动浏览器显示效果设置 -->
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<!-- 实现响应式开发必须配置,且必须在<head>内前三行 -->
+		<title>practice2</title>
+		<!-- 引入预定于的Bootstrap的CSS样式 -->
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div style='font-size: 38px;'>
+				<script type="text/javascript">
+					console.log("开始第五讲");
+					 // alert("这是我的第一个弹窗！");
+					// 打印
+					document.write("显示些什么呢"+'<br/>');
+					// js定义对象
+					var a={name:"张三",age:18,interest:"编程"}
+					document.write(a.name+'</br>'+a.age+'<br/>'+a.interest+'<br/>');
+					//比较==与===
+					var b='4'==4;
+					document.write(b+'<br/>');
+					var c='4'===4;
+					document.write(c+'<br/>');
+					//日期类
+					var d=new Date();
+					document.write(d.getFullYear()+d.getMonth()+d.getDay()+d.getDate()+d.getHours()+d.getMinutes()+d.getSeconds()+'<br/>');
+					//类型转换
+					var e=parseInt("123");
+					document.write(typeof(e)+'<br/>');
+					//js函数
+					function add(a,b)
+					{
+						return a+b;
+					}
+					document.write(add(1,2)+'<br/>');
+				</script>
+			</div>
+			<div class='row'>
+				<div class='col-md-12'>
+					<script type='text/javascript'>
+						function click1(){
+							alert('说了别戳我！');
+							document.write("别戳我！"+'<br/>');
+							}
+						function m(){
+							alert("别点我~~~~");
+							}
+					</script>
+					<!--测试onclik事件form-->
+					<form>
+						<input type='button' value='别戳我' onclick="click1()" class="btn-danger"/>
+						<button type="submit" onclick="m()" class="btn-success">发送</button>
+					</form>
+					<script >
+						function link1()
+						{
+							var f=document.getElementById('雅拉伊');
+							f.href="https://www.yalayi.com/";
+						}
+					</script>
+				</div>
+				<!--测试document.getElementById-->
+				<div class="row">
+					<div class="col-md-12">
+						<a id='雅拉伊' href="https://www.baidu.com/" onclick="link1()">雅拉伊</a>
+					</div>
+				</div>
+				<div class='row' id='text2'>
+					<div class='col-md-12' id='text1'>
+						<script>
+							function changeText()
+							{
+								var g=document.getElementById('text1');
+								g.innerText='塞翁失马焉知非福';
+							}
+						</script>
+						<div id='text3'>
+							这是一件好事
+							<div id='text4'>
+								这是一件坏事
+							</div>
+						</div>
+						<script>
+							function changeText()
+							{
+								var g=document.getElementById('text1');
+								g.innerText='塞翁失马焉知非福';
+							}
+							var g=document.getElementById('text4');
+							g.innerText='塞翁失马焉知非福';
+						</script>
+					</div>
+				</div>
+			</div>
+		</div>
+		<ul id='ul1'>
+			<li>
+				你好
+			</li>
+		</ul>
+		<script type='text/javascript'>
+			// 测试向列表中添加节点
+			var h=document.getElementById('ul1');
+			//createElement里只能写有效的元素名
+			var i=document.createElement('li');
+			h.appendChild(i);
+		</script>
+		<div id='div1'>
+			<script type='text/javascript'>
+				var h=document.getElementById('div1');
+				var i=document.getElementById('text4');
+				//如果添加的节点已存在则会将该节点移至添加处
+				h.appendChild(i);
+			</script>
+		</div>
+	 	<div id="t01">
+			这是例子1
+			<div id="t02">
+				<img src="img/艾丁机器人.jpg" class=" img-circle" style="width: 25px;height: 25px;" alt=""/>
+				这是例子二
+			</div>
+		</div>
+		<div>
+			<script type="text/javascript">
+				var a=document.getElementById("t01");
+				var b=document.getElementById("t02");
+				a.appendChild(b);
+				var c=document.createElement("li");
+				a.appendChild(c);
+			</script>
+		</div>
+		<div id="div3">
+			只是一个笑话
+			<div id="div2">
+				不，这是真的
+			</div>
+		</div>
+			<script type="text/javascript">
+				var a=document.getElementById("div3");
+				var b=document.createElement("<div>");
+			</script>
+		<div style="background-color: #008000;width: 100px;height: 100px;float: left;"></div>
+		<div style="background-color: black;width: 100px;height: 100px;float: left;"></div>
+	</body>
+</html>

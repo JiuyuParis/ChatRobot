@@ -1,0 +1,46 @@
+/* 头像样式 */
+.headImgRobot
+{
+	width: 30px;
+	height: 30px;
+	border-radius: 20%;
+	border: 2.5px solid #D9EDF7;
+}
+.headImgUser
+{
+	width: 30px;
+	height: 30px;
+	border: 2px solid #D9EDF7;
+}
+/* 聊天框样式 */
+.DialogUser
+{
+	max-width:80%;
+	background: greenyellow;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+	border-top-left-radius: 10px;
+	padding:2px;
+	border:3px solid #DDDDDD;
+}
+.DialogRobot
+{
+	max-width:80%;
+	background: white;
+	border-radius:12px;
+	padding:2px;
+	border:3px solid #DDDDDD;
+}
+/* 设置div根据内容进行高度显示 */
+.after
+{
+	clear:both;
+	margin-bottom: 10px;
+}
+/* 解决两个间距问题 */
+.after:after
+{
+	clear:both;
+	display:block;
+	content:"";
+}

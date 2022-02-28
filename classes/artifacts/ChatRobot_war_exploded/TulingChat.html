@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>图灵聊天机器人</title>
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+		<link type="text/css" rel="stylesheet" href="css/diy.css"/>
+		<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+	</head>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#formDialog").submit(function(e){
+					e.preventDefault();
+					//获取用户聊天信息
+					var message=$("#message1").val();
+					//判断聊天信息是否为空
+					//如果为空则弹出提示框
+					if(message.length===0)
+						{
+							alert("请输入聊天信息");
+							return;
+						}
+					//如果有信息则将信息插入聊天框
+					$("#divMessage").append("<div class=\"after\">" +
+												"<div style=\"float: right;\">" +
+													"<img src=\"img/QQ头像.jpg\" class=\"headImgUser img-circle\" alt=\"\"/>" +
+												"</div>" +
+												"<div style=\"float: right;\" class=\"DialogUser\">"+
+													message+
+												"</div>" +
+											"</div>");
+					//滚动条滚动
+					$("#divMessage")[0].scrollTop=$("#divMessage")[0].scrollHeight;
+					//消息发送后清空输入框
+					$("#message1").val("");
+					//使表单提交后文本框仍获取焦点
+					$("#message1").focus();
+					//获得机器人的响应并将聊天记录输入到聊天框
+					$.ajax({
+						data:{information:message},
+						url:"./TulingChat.jsp",
+						dataType:'text',//服务器返回json格式数据
+						type:'post',//HTTP请求类型
+						timeout:10000,//超时时间设置为10秒；
+						success:function(data){
+							$("#divMessage").append("<div class=\"after\">" +
+														"<div style=\"float: left;\">" +
+															"<img src=\"img/图灵机器人.png\" class=\"headImgRobot\" alt=\"\"/>" +
+														"</div>" +
+														"<div style=\"float: left;\" class=\"DialogRobot\">"
+															+data+
+														"</div>" +
+													"</div>");
+							//滚动条滚动
+							$("#divMessage")[0].scrollTop=$("#divMessage")[0].scrollHeight;
+						},
+						error:function(){
+							alert("遇到意外，请重试！");
+						}
+					});
+				})
+			})
+		</script>
+	<body>
+		<!-- 最外框：容器 -->
+		<div class="container">
+			<!-- 页面顶框 -->
+			<div class="row">
+				<div class="text-left" style="background-color: lightgrey;height: 30px;font-size: large;">
+					<img src="img/图灵机器人.png" class=" img-circle" style="width: 25px;height: 25px;" alt=""/>
+						图灵聊天机器人
+				</div>
+			</div>
+			<!-- 中间div（包含聊天界面div） -->
+			<div class='row' style="height: 520px;background-image: url(img/蒲公英.jpg);">
+				<!-- 聊天界面左 -->
+				<div class="col-md-2"></div>
+				<!-- 聊天界面 -->
+				<div class="col-md-8" style="border-bottom: royalblue 5px solid;padding: 50px 0 0 0;">
+					<!-- 聊天窗口上框 -->
+					<div class="text-center" style="height: 30px;background-color: #9ACFEA;border-top:royalblue 5px solid;border-left:royalblue 5px solid;border-right:royalblue 5px solid;">机器人初心</div>
+					<!-- 聊天正文框 -->
+					<div id="divMessage" class="pre-scrollable" style="height: 488px;background-image: url(img/聊天背景.jpeg);font-size: 16px;margin-bottom: 0;border-left:royalblue 5px solid;border-right:royalblue 5px solid;padding-top:5px ;">
+						<!-- 消息框 -->
+					</div>
+					<!-- form表单div -->
+					<div style="text-align: center;background-color:lightblue;height: 30px;margin-top: 0px;border-left:royalblue 5px solid;border-right:royalblue 5px solid;">
+						<form id="formDialog">
+							<label for="message1"></label><input id="message1" type="text" name="information" placeholder="请输入聊天内容" />
+							<input id="subDialog" type="submit" value="发送" class="btn-success"/>
+						</form>
+					</div>
+				</div>
+				<!-- 聊天界面右 -->
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center" style="background-color: lightgrey;">
+					@刘昌兴
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

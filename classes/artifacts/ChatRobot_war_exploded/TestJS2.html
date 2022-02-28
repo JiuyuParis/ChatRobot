@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="utf-8">
+		<title>js-dom</title>
+	</head>
+	<body>
+		<!-- 获取页面对象（元素） -->
+		<span id="text">文字</span>
+		<script type="text/javascript">
+			var a=document.getElementById("text");
+			document.write(a);
+		</script>
+		<hr />
+		<!-- 设置属性值 -->
+		<script type="text/javascript">
+			function m1(){
+				var a=document.getElementById("text1");
+				a.href="http://www.baidu.com";
+				console.log(a.href);
+			}
+		</script>
+		<a href="TestJS.html" id="text1" onmouseover="m1()">JS学习</a>
+		<!-- 获取元素属性 -->
+		<script type="text/javascript">
+			var a=document.getElementById("text1");
+			document.write(a.href);
+		</script>
+		<hr/>
+		<script type="text/javascript">
+			function m2(){
+				var a=document.getElementById("text2");
+				a.innerText="改变";
+			}
+		</script>
+		<!-- 获取标签体 -->
+		<span id="text2" onmouseover="m2()">文字</span>
+		<script type="text/javascript">
+			var a=document.getElementById("text2");
+			var b=a.innerText;
+			document.write(b);
+		</script>
+		<hr />
+		<!-- 获取标签体包括标签中的标签 -->
+		<script type="text/javascript">
+			function m3(){
+				var a=document.getElementById("text3");
+				a.innerHTML="<a href='TestJS.html'>JS学习</a>";
+			}
+		</script>
+		
+		<div id="text3" onmousemove="m3()">
+			<span>文字</span>
+		</div>
+		<script type="text/javascript">
+			var a=document.getElementById("text3");
+			console.log(a.innerHTML);
+		</script>
+		<hr/>
+		<script type="text/javascript">
+			function m4(){
+				var a=document.getElementById("text4");
+				console.log(a.value);
+				a.value=null;
+			}
+		</script>
+		<label for="text4"></label><input type="text" id="text4" onchange="m4()"/>
+		<hr/>
+		<script type="text/javascript">
+			function m6(){
+				var a=document.getElementById("text5");
+				// 创建子标签
+				var b=document.createElement("li");
+				//子标签设置标签体
+				var c=document.getElementById("text6");
+				var d=c.value;
+				b.innerText=d;
+				//添加在父标签里
+				a.appendChild(b);
+			}
+		</script>
+		<ul id="text5">
+			<li>你好</li>
+		</ul>
+		<label for="text6"></label><input type="text" id="text6" onchange="m6()"/>
+		<script type="text/javascript">
+			var a=document.getElementById("text5");
+			// 创建子标签
+			var b=document.createElement("li");
+			//添加在父标签里
+			a.appendChild(b);
+		</script>
+		
+	</body>
+</html>

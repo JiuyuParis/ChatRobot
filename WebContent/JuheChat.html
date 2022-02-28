@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>聚合机器人聊天室</title>
+		<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+		<link type='text/css' rel='stylesheet' href='css/bootstrap.min.css'/>
+		<link type="text/css" rel="stylesheet" href="css/diy.css" />
+	</head>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#formDialog").submit(function(e){
+				e.preventDefault();
+				//获取用户聊天信息
+				var message=$("#message1").val();
+				//判断聊天信息是否为空
+				//如果为空则弹出提示框
+				if(message.length==0)
+					{
+						alert("请输入聊天信息");
+						return;
+					}
+				//如果有信息则将信息插入聊天框
+				$("#divMessage").append("<div class='after'><div style='float:right'><img src='img/QQ头像.jpg' class='headImgUser img-circle'/></div><div class='DialogUser' style='float: right;'>"+message+"</div></div>");
+				//滚动条滚动
+				$("#divMessage")[0].scrollTop=$("#divMessage")[0].scrollHeight;
+				//消息发送后清空输入框
+				$("#message1").val("");
+				//获得机器人的响应并将聊天记录输入到聊天框
+				$.ajax({
+					data:{text:message},
+					url:"./exp2HttpJuhe.jsp",
+					dataType:'text',//服务器返回json格式数据
+					type:'post',//HTTP请求类型
+					timeout:10000,//超时时间设置为10秒；
+					success:function(data){
+						$("#divMessage").append("<div class='after'><div style='float:left'><img src='img/聚合机器人.png' class='headImgRobot'/></div><div class='DialogUser' style='background-color: greenyellow;float: left;'>"+data+"</div></div>");
+						//滚动条滚动
+						$("#divMessage")[0].scrollTop=$("#divMessage")[0].scrollHeight;
+					},
+					error:function(){
+						alert("遇到意外，请重试！");
+					}
+				});
+			})
+		})
+	</script>
+	<body>
+		<!-- 最外层容器 -->
+		<div class='container-fluid'>
+			<!-- 标题 -->
+			<div class='row'>
+				<div class='col-md-12' style='height:30px;background-color: lightgrey;'>
+					<img src='img/聚合机器人.png' style='width:25px;height:25px' class='img-circle'/>
+					<span class="h3" style="color: black;">聚合机器人</span>
+				</div>
+			</div>
+			<!-- 中间div -->
+			<div class='row' style="border: #008000 2px solid;height:480px;background-image: url(img/丛林.jpg);padding-top: 40px;">
+				<!-- 聊天界面左边 -->
+				<div class='col-md-2'></div>
+				<!-- 聊天界面 -->
+				<div class='col-md-8' style='padding: 0px;background-color: green'>
+					<!-- 聊天标题 -->
+					<div class='text-center' style='height:30px'>
+						<span class='h4'>历史上的今天</span>
+					</div>
+					<!-- 聊天正文 -->
+					<div id="divMessage" class="pre-scrollable" style='height: 420px;background-image: url(img/lol英雄联盟寒冰射手艾希.jpg);padding-top: 5px;'>
+						<!-- 内容 -->
+						<div class='after'>
+							<div style='float:left'>
+								<img src='img/QQ头像.jpg' class='headImgUser img-circle'/>
+							</div>
+							<div class='DialogUser' style='float: left;'>
+								Java是最好的计算机语言
+							</div>
+						</div>
+						<div class='after'>
+							<div style='float:right'>
+								<img src='img/聚合机器人.png' class='headImgRobot'/>
+							</div>
+							<div class='DialogUser' style="background-color: greenyellow;float: right;">
+								C++是最好的计算机语言
+							</div>
+						</div>
+					</div>
+					<!-- 输入聊天信息表单div -->
+					<div style="text-align: center;height: 30px;">
+						<form id="formDialog">
+							<input id="message1" type='text' name='information'/>
+							<input class='btn-success' type='submit' value="发送"/>
+						</form>
+					</div>
+				</div>
+				<div class='col-md-2'></div>
+			</div>
+			<!-- 底部标签 -->
+			<div class="row">
+				<div class="col-md-12" style="height: 30px;text-align: center;background-color: lightgrey;">
+					@刘昌兴
+				</div>
+			</div>
+	</div>
+	</body>
+</html>
