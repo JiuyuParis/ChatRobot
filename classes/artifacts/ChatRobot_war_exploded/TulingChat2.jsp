@@ -13,7 +13,7 @@
 	request.setCharacterEncoding("UTF-8");
 	//准备请求数据
 	String question=request.getParameter("information");
-	String apiKey="e6f28a95c2c543d78a90d796aa3a4f7c";
+	String apiKey="换成自己申请的图灵机器人的key";
 	String userID="123456789";
 	String param="{\"reqType\":0,\"perception\": {\"inputText\": {\"text\": \""+question+"\"}},\"userInfo\": {\"apiKey\": \""+apiKey+"\",\"userId\": \""+userID+"\"}}";
 	//向图灵接口发送请求数据

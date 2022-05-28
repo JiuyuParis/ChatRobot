@@ -16,7 +16,7 @@
 		//设定参数
 		String question=request.getParameter("information");
 		robot.setUrl("http://openapi.tuling123.com/openapi/api/v2");
-		robot.setApiKey("e6f28a95c2c543d78a90d796aa3a4f7c");
+		robot.setApiKey("换成自己申请的图灵机器人的key");
 		robot.setUserId("123456789");
 		//返回结果
 		String result=robot.doTalk(question);
