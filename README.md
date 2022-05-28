@@ -18,7 +18,7 @@
 
 #### 项目截图
 
-![image-20220528132246585](C:\Users\刘昌兴\AppData\Roaming\Typora\typora-user-images\image-20220528132246585.png)
+![image-20220528133847748](README.assets/image-20220528133847748.png)
 
-![image-20220528132336988](C:\Users\刘昌兴\AppData\Roaming\Typora\typora-user-images\image-20220528132336988.png)
+![image-20220528133902137](README.assets/image-20220528133902137.png)
 
