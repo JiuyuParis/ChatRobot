@@ -15,7 +15,7 @@
 		JuheRobot robot1=new JuheRobot();
 		String question=request.getParameter("text");
 		robot1.setUrl("http://v.juhe.cn/todayOnhistory/queryEvent.php");
-		robot1.setApiKey("ab756dc553c8fb5ce9246b899f8970f7");
+		robot1.setApiKey("换成自己申请的历史上的今天的key");
 		//返回结果
 		String result=robot1.doTalk(question);
 		response.getWriter().write(result);
