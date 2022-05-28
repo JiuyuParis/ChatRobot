@@ -8,30 +8,12 @@ import cn.hutool.http.HttpUtil;
  */
 public abstract class Robot {
 	//api url
-	public String url;
+	private String url;
 	//apiKey
-	public String apiKey;
+	private String apiKey;
 	//userId
-	public String userId;
-	public String getUrl() {
-		return url;
-	}
-	public void setUrl(String url) {
-		this.url = url;
-	}
-	public String getApiKey() {
-		return apiKey;
-	}
-	public void setApiKey(String apiKey) {
-		this.apiKey = apiKey;
-	}
-	
-	public String getUserId() {
-		return userId;
-	}
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
+	private String userId;
+
 	/**
 	 * 封装请求数据
 	 * @author 刘昌兴
@@ -62,4 +44,24 @@ public abstract class Robot {
 	 * @date 2022/2/28 11:43
 	 */
 	public abstract String afterChat(String msg);
+
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	public String getApiKey() {
+		return apiKey;
+	}
+	public void setApiKey(String apiKey) {
+		this.apiKey = apiKey;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 }

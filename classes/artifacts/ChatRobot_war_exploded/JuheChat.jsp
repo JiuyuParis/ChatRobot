@@ -14,11 +14,10 @@
 		//建立机器人
 		JuheRobot robot1=new JuheRobot();
 		String question=request.getParameter("text");
-		robot1.setUrl("http://op.juhe.cn/iRobot/index");
-		robot1.setApiKey("4124050afa4663aa033d72f773e39594");
+		robot1.setUrl("http://v.juhe.cn/todayOnhistory/queryEvent.php");
+		robot1.setApiKey("ab756dc553c8fb5ce9246b899f8970f7");
 		//返回结果
 		String result=robot1.doTalk(question);
-		System.out.println(result);
 		response.getWriter().write(result);
 	%>
 </body>

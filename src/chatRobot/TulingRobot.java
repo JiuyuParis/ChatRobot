@@ -7,7 +7,7 @@ package chatRobot;
 public class TulingRobot extends Robot{
 	public String beforeChat(String msg)
 	{
-		return "{\"reqType\":0,\"perception\": {\"inputText\": {\"text\": \""+msg+"\"}},\"userInfo\": {\"apiKey\": \""+apiKey+"\",\"userId\": \""+userId+"\"}}";
+		return "{\"reqType\":0,\"perception\": {\"inputText\": {\"text\": \""+msg+"\"}},\"userInfo\": {\"apiKey\": \""+getApiKey()+"\",\"userId\": \""+getUserId()+"\"}}";
 	}
 	public String afterChat(String msg)
 	{

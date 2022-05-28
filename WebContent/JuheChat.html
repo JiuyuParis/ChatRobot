@@ -31,9 +31,7 @@
 				//获得机器人的响应并将聊天记录输入到聊天框
 				$.ajax({
 					data:{text:message},
-					url:"./exp2HttpJuhe.jsp",
-					dataType:'text',//服务器返回json格式数据
-					type:'post',//HTTP请求类型
+					url:"./JuheChat.jsp",
 					timeout:10000,//超时时间设置为10秒；
 					success:function(data){
 						$("#divMessage").append("<div class='after'><div style='float:left'><img src='img/聚合机器人.png' class='headImgRobot'/></div><div class='DialogUser' style='background-color: greenyellow;float: left;'>"+data+"</div></div>");
@@ -72,18 +70,10 @@
 						<!-- 内容 -->
 						<div class='after'>
 							<div style='float:left'>
-								<img src='img/QQ头像.jpg' class='headImgUser img-circle'/>
+								<img src='img/聚合机器人.png' class='headImgUser img-circle'/>
 							</div>
 							<div class='DialogUser' style='float: left;'>
-								Java是最好的计算机语言
-							</div>
-						</div>
-						<div class='after'>
-							<div style='float:right'>
-								<img src='img/聚合机器人.png' class='headImgRobot'/>
-							</div>
-							<div class='DialogUser' style="background-color: greenyellow;float: right;">
-								C++是最好的计算机语言
+								请按格式输入日期：:月/日 如:1/1,/10/1,12/12 如月或者日小于10,前面无需加0
 							</div>
 						</div>
 					</div>
